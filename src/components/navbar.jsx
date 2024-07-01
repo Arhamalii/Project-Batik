@@ -3,7 +3,7 @@ import perthBanner from "../assets/OD_x_Perth_Header_banner.jpg";
 import navLogo from "../assets/navLogo.png";
 const Navbar = () => {
   return (
-    <header className="bg-white h-[95px] border-b border-[#E3E3E3] drop-shadow-xl flex justify-center items-start">
+    <header className="bg-white h-auto sm:h-[196px] lg:h-[95px] border-b border-[#E3E3E3] drop-shadow-xl flex justify-center items-start min-h-[95px] sm:min-h-full">
       <nav className="max-w-[1170px] lg:flex bg-white sm:bg-transparent">
         <div className="px-[15px]">
           <img

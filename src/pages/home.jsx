@@ -1,4 +1,5 @@
 import React from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { MdOutlineFlightTakeoff } from "react-icons/md";
 import Layout from "../pages/layout";
 const Home = () => {
@@ -27,7 +28,7 @@ const Home = () => {
           </div>
           {/* inputs API integrate here */}
           <div className="flex items-center w-full flex-wrap">
-            <div className="text-[#222] text-[14px] pr-[20px]">
+            <div className="text-[#222] text-[14px] pr-[20px] inputdiv1">
               <label htmlFor="" className=" block mb-[5px]">
                 Booking Reference (PNR) <span className="text-red-600">*</span>
               </label>
@@ -35,11 +36,11 @@ const Home = () => {
                 name="txtPNR"
                 type="text"
                 id="txtPNR"
-                className="form-control uppercase w-[300px]"
+                className="form-control form-control-1 uppercase w-[300px] "
               ></input>
             </div>
 
-            <div className="text-[#222] text-[14px] pr-[20px]">
+            <div className="text-[#222] text-[14px] pr-[20px] inputdiv2">
               <label htmlFor="" className=" block mb-[5px]">
                 First Name <span className="text-red-600">*</span>
               </label>
@@ -47,10 +48,10 @@ const Home = () => {
                 name="txtPNR"
                 type="text"
                 id="txtPNR"
-                className="form-control uppercase w-[165px]"
+                className="form-control form-control-2 uppercase w-[165px]"
               ></input>
             </div>
-            <div className="text-[#222] text-[14px]">
+            <div className="text-[#222] text-[14px] inputdiv3">
               <label htmlFor="" className=" block mb-[5px]">
                 Last Name<span className="text-red-600">*</span>
               </label>
@@ -58,14 +59,22 @@ const Home = () => {
                 name="txtPNR"
                 type="text"
                 id="txtPNR"
-                className="form-control uppercase w-[165px]"
+                className="form-control form-control-3 uppercase w-[165px]"
               ></input>
             </div>
 
-            <button type="submit" class="btn btn-default mt-6 ml-[30px]">
+            <button type="submit" class="btn btn-default mt-6 ">
               Continue
             </button>
           </div>
+          <ReCAPTCHA
+            className="inline-block mt-[30px]"
+            theme="light"
+            sitekey={import.meta.env.VITE_CAPTCHA_SITE_KEY}
+            // ref={this._reCaptchaRef}
+            // onChange={this.handleChange}
+            // asyncScriptOnLoad={this.asyncScriptOnLoad}
+          />
         </div>
       </div>
     </Layout>
