@@ -1,15 +1,22 @@
 import React from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import { MdOutlineFlightTakeoff } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import planeIcon from "../assets/plane_icon.svg";
 import Layout from "../pages/layout";
 const Home = () => {
+  const Naviagte = useNavigate();
   return (
-    <Layout>
+    <Layout title={"Make Online Flight Change "} homeFooter={true}>
       <div className="bg-[#F1F1F1] min-h-[450px] py-[20px]">
         <div className="bg-white max-w-[1140px] min-h-[420px] p-[25px] mx-auto">
           <div className="flex gap-x-2 items-center mb-[25px]">
-            <MdOutlineFlightTakeoff className=" text-[20px] text-[#be1a4a]" />
-            <h2 className="text-[21px] font-medium text-[#333] ]">
+            <img
+              src={planeIcon}
+              alt="plane"
+              class
+              className=" w-[44px] h-[34px]"
+            />
+            <h2 className="text-[20px] font-medium text-[#333] ]">
               Manage Booking
             </h2>
           </div>
@@ -63,7 +70,11 @@ const Home = () => {
               ></input>
             </div>
 
-            <button type="submit" class="btn btn-default mt-6 ">
+            <button
+              type="submit"
+              class="btn btn-default mt-6"
+              onClick={() => Naviagte("/manage-addons")}
+            >
               Continue
             </button>
           </div>

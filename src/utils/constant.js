@@ -1,76 +1,99 @@
 export const aboutList = [
   {
     text: "Who are we",
-    path: "#",
+    path: "https://www.malindoair.com/about-us",
   },
   {
     text: "Where We Fly",
-    path: "#",
+    path: "https://www.malindoair.com/destinations/route-map",
   },
 
   {
     text: "Our Fleet",
-    path: "#",
+    path: "https://www.malindoair.com/experiences/our-fleet",
   },
 
   {
     text: "Terms & conditions",
-    path: "#",
+    path: "https://www.malindoair.com/terms-and-conditions",
   },
   {
     text: "FAQ",
-    path: "#",
+    path: "https://www.malindoair.com/faqs",
   },
 ];
 
 export const expirenceList = [
   {
     text: "Business Class",
-    path: "#",
+    path: "https://www.malindoair.com/experiences/our-business-class",
   },
   {
     text: "Our Seats",
-    path: "#",
+    path: "https://www.malindoair.com/experiences/seating",
   },
 
   {
     text: "Baggage",
-    path: "#",
+    path: "https://www.malindoair.com/experiences/baggage",
   },
 
   {
     text: "Meals",
-    path: "#",
+    path: "https://www.malindoair.com/experiences/Meals",
   },
 ];
 
 export const contactUsList = [
   {
     text: "Call centre",
-    path: "#",
+    path: "https://www.malindoair.com/contact-us",
   },
   {
     text: "Sales office",
-    path: "#",
+    path: "https://www.malindoair.com/contact-us/sales-office",
   },
 
   {
     text: "Careers",
-    path: "#",
+    path: "https://www.malindoair.com/contact-us/career",
   },
 
   {
     text: "Ad space",
-    path: "#",
+    path: "https://www.malindoair.com/contact-us/Ad-Space",
   },
 ];
 export const productList = [
   {
     text: "Malindo Miles",
-    path: "#",
+    path: "http://malindomiles.com/",
   },
   {
     text: "Batik Air Corporate",
-    path: "#",
+    path: "https://www.malindoair.com/Corporate",
+  },
+];
+
+export const addonNavLinks = [
+  {
+    text: "Home",
+    path: "https://search.malindoair.com/OD/UserProfile/Home.aspx?t=A3",
+  },
+  {
+    text: "Book Flight",
+    path: "https://www.batikair.com.my/",
+  },
+  {
+    text: "Registration",
+    path: "https://search.malindoair.com/OD/UserProfile/Profile.aspx?t=A3",
+  },
+  {
+    text: "Malindo Miles",
+    path: "https://www.malindomiles.com/inspirenetz/app/",
+  },
+  {
+    text: "Contact Us",
+    path: "https://search.malindoair.com/OD/UserProfile/ContactUs.aspx?t=A3",
   },
 ];

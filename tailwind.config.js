@@ -12,6 +12,10 @@ export default {
         lg: "991px",
         xl: "1200px",
       },
+      backgroundImage: {
+        "custom-pruple-gradient":
+          "linear-gradient(to right, #bd1b4c 0%, #8a3b7e 99%)",
+      },
     },
   },
   plugins: [],

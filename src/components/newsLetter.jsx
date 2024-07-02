@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import signupFlight from "../assets/signup-flight.png";
 const NewsLetter = () => {
   return (
@@ -24,11 +25,13 @@ const NewsLetter = () => {
             <li>Learn about new and exciting destinations</li>
             <li>Get the latest travel news and more</li>
           </ul>
-          <div>
+          <Link
+            to={"https://www.malindoair.com/special-offers/sign-up-newsletter"}
+          >
             <button className=" bg-transparent border border-[#f7aa54] w-[100px] lg:w-[150px] rounded-full h-[35px] leading-[30px] lg:h-[40px]  lg:leading-[40px] p-0 normal-case font-normal text-center text-[#f7aa54] text-sm lg:text-[16px] md:ml-4 lg:ml-0 ">
               Sign me up
             </button>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

@@ -4,7 +4,14 @@ import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import NewsLetter from "../components/newsLetter";
 
-const Layout = ({ children, title, description, keywords, author }) => {
+const Layout = ({
+  children,
+  title,
+  description,
+  keywords,
+  author,
+  homeFooter,
+}) => {
   return (
     <HelmetProvider>
       <Helmet>
@@ -17,7 +24,7 @@ const Layout = ({ children, title, description, keywords, author }) => {
       <Navbar />
       <main>{children}</main>
       <NewsLetter />
-      <Footer />
+      <Footer homeFooter={homeFooter} />
     </HelmetProvider>
   );
 };
