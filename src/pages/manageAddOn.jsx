@@ -1,9 +1,46 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import addonIcon from "../assets/addon-icon.svg";
 import AddonNav from "../components/addonNav";
 import ToolTipBtn from "../components/toolTipBtn";
+import { useLoading } from "../context";
+import { transformDate } from "../utils/constant";
 import Layout from "./layout";
+
 const ManageAddOn = () => {
+  const { setIsLoading } = useLoading();
+  const navigate = useNavigate();
+  const [data, setData] = useState(null);
+
+  // fetching refPnr from params
+  const [searchParams] = useSearchParams();
+  const refPNR = searchParams.get("refPNR");
+
+  const fetchDetails = async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.get(
+        `http://api.flymalindo.com/api/web/flight/queryCode?code=${refPNR}`
+      );
+      if (response?.data.status === false) {
+        setIsLoading(false);
+        navigate("/");
+      } else {
+        setIsLoading(false);
+        setData(response.data.data);
+      }
+    } catch (error) {
+      setIsLoading(false);
+      navigate("/");
+    }
+  };
+  // fetch new details on every page relaod
+  useEffect(() => {
+    fetchDetails();
+  }, []);
+
+  console.log(data);
   return (
     <Layout title={"Batik Air, Malaysia - Smarter Way to Travel"}>
       <AddonNav />
@@ -36,7 +73,7 @@ const ManageAddOn = () => {
                   type="text"
                   id="txtPNR"
                   className="form-control uppercase w-[300px] "
-                  value={"ODKRHF"}
+                  value={data ? data?.records[0].code : "loading..."}
                   disabled
                   style={{
                     background: "#fafafa",
@@ -73,27 +110,26 @@ const ManageAddOn = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="tab-05">1</td>
-                      <td class="tab-2">MR PENGWEI LIN</td>
-                      <td class="tab-1">Adult</td>
-                      <td class="tab-1"></td>
-                      <td class="tab-1">8162126154356</td>
-                      <td class="tab-1"></td>
-                      <td class="tab-2"></td>
-                      <td class="tab-1"></td>
-                    </tr>
-
-                    <tr>
-                      <td class="tab-05">2</td>
-                      <td class="tab-2">MS YONGLAN YAN</td>
-                      <td class="tab-1">Adult</td>
-                      <td class="tab-1"></td>
-                      <td class="tab-1">8162126154357</td>
-                      <td class="tab-1"></td>
-                      <td class="tab-2"></td>
-                      <td class="tab-1"></td>
-                    </tr>
+                    {data?.passengers.map((passenger, i) => (
+                      <tr>
+                        <td class="tab-05">{i + 1}</td>
+                        <td class="tab-2">
+                          {data?.records[i].passenger_sex === "M" ? "MR" : "MS"}{" "}
+                          &nbsp;
+                          {passenger.name}
+                        </td>
+                        <td class="tab-1">
+                          {data?.records[i].passenger_type === "婴儿"
+                            ? "Infant"
+                            : "Adult"}
+                        </td>
+                        <td class="tab-1"></td>
+                        <td class="tab-1">{data?.records[i].ticket_number}</td>
+                        <td class="tab-1"></td>
+                        <td class="tab-2"></td>
+                        <td class="tab-1"></td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
@@ -513,23 +549,27 @@ const ManageAddOn = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="tab-05">
-                        Batik Air,MY <br />
-                        OD0613
-                      </td>
-                      <td class="tab-2">
-                        Baiyun International <br />
-                        05-Jul-2024 03:10
-                      </td>
-                      <td class="tab-1">
-                        Kuala Lumpur International Airport <br /> 05-Jul-2024
-                        07:15
-                      </td>
-                      <td class="tab-1">Super Saver(T)</td>
-                      <td class="tab-1"></td>
-                      <td class="tab-1"></td>
-                    </tr>
+                    {data?.records.map((records, i) => (
+                      <tr>
+                        <td class="tab-05">
+                          Batik Air,MY <br />
+                          {records.get_flight_info.couple_flight_no}
+                        </td>
+                        <td class="tab-2">
+                          {records.get_flight_info.start_airport} <br />
+                          {transformDate(records.get_flight_info.date)}{" "}
+                          {records.get_flight_info.start_fly_time}
+                        </td>
+                        <td class="tab-1">
+                          {records.get_flight_info.end_airport} <br />{" "}
+                          {transformDate(records.get_flight_info.date)}{" "}
+                          {records.get_flight_info.end_fly_time}
+                        </td>
+                        <td class="tab-1">Super Saver(T)</td>
+                        <td class="tab-1"></td>
+                        <td class="tab-1"></td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>

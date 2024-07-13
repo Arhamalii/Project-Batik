@@ -1,9 +1,9 @@
 import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Footer from "../components/footer";
+import Loader from "../components/loader";
 import Navbar from "../components/navbar";
 import NewsLetter from "../components/newsLetter";
-
 const Layout = ({
   children,
   title,
@@ -22,6 +22,7 @@ const Layout = ({
         <meta name="author" content={author} />
       </Helmet>
       <Navbar />
+      <Loader />
       <main>{children}</main>
       <NewsLetter />
       <Footer homeFooter={homeFooter} />

@@ -97,3 +97,26 @@ export const addonNavLinks = [
     path: "https://search.malindoair.com/OD/UserProfile/ContactUs.aspx?t=A3",
   },
 ];
+export function transformDate(dateStr) {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const dateObj = new Date(dateStr);
+  const day = String(dateObj.getDate()).padStart(2, "0");
+  const month = months[dateObj.getMonth()];
+  const year = dateObj.getFullYear();
+
+  return `${day}-${month}-${year}`;
+}

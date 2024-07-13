@@ -85,8 +85,7 @@ input.form-control {
   color: #fff;
   box-shadow: 0px 5px 8px 0 rgba(0, 0, 0, 0.2);
 }
-
-@media screen and (max-width: 859px) {
+@media screen and (max-width: 958px) {
   .btn-default {
     margin-left: 0px;
     margin-right: 30px;
@@ -100,9 +99,10 @@ input.form-control {
   }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 820px) {
   .form-control-1 {
     min-width: 100%;
+    width: 100%;
   }
   .inputdiv1 {
     width: 100%;
@@ -222,6 +222,7 @@ select .form-control {
   background-position: bottom right;
   background-repeat: no-repeat;
 }
+
 @media screen and (min-width: 991px) {
   .ftrBg {
     background-image: none;
