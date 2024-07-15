@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import planeIcon from "../assets/plane_icon.svg";
 import Toast from "../components/toast";
 import { useLoading } from "../context";
+import "../index.css";
 import Layout from "../pages/layout";
 
 const Home = () => {
@@ -39,6 +40,15 @@ const Home = () => {
         setMessage("Error in retrieving your booking. Please try again.");
         setIsVisible(true);
         setIsLoading(false);
+      } else if (
+        response?.data?.data?.records[0].name.toLowerCase() !==
+        data.FirstName.toLowerCase().split(" ").join("") +
+          " " +
+          data.LastName.toLowerCase().split(" ").join("")
+      ) {
+        setMessage("Error in retrieving your booking. Please try again.");
+        setIsVisible(true);
+        setIsLoading(false);
       } else {
         setMessage(null);
         setIsVisible(false);
@@ -46,6 +56,7 @@ const Home = () => {
         navigate(`/manage-addons?refPNR=${data.refPNR}`);
       }
     } catch (error) {
+      console.log(error);
       setMessage("An error occurred while fetching data.");
       setIsVisible(true);
       setIsLoading(false);
