@@ -40,7 +40,6 @@ const ManageAddOn = () => {
     fetchDetails();
   }, []);
 
-  console.log(data);
   return (
     <Layout title={"Batik Air, Malaysia - Smarter Way to Travel"}>
       <AddonNav />
@@ -90,44 +89,46 @@ const ManageAddOn = () => {
             </h4>
             <div className="flex gap-x-2 items-center mt-[4px]">
               <div
-                class="table-responsive overflow-scroll md:overflow-hidden "
+                className="table-responsive overflow-scroll md:overflow-hidden "
                 bis_skin_checked="1"
               >
                 <table
-                  class="table-border w-[710px] xl:w-[796px] "
+                  className="table-border w-[710px] xl:w-[796px] "
                   id="tblpassengers"
                 >
-                  <thead class="table-border text-[13px] text-[#101010] bg-[#f1f1f1] border-red-400 ">
+                  <thead className="table-border text-[13px] text-[#101010] bg-[#f1f1f1] border-red-400 ">
                     <tr>
-                      <th class="p-2 font-medium">Sl. No</th>
-                      <th class="p-2 font-medium">Passenger Name</th>
-                      <th class="p-2 font-medium">Passenger Type</th>
-                      <th class="p-2 font-medium">Passport Number</th>
-                      <th class="p-2 font-medium">E-Ticket No</th>
-                      <th class="p-2 font-medium">Seats</th>
-                      <th class="p-2 font-medium">Meals</th>
-                      <th class="p-2 font-medium">Assistance</th>
+                      <th className="p-2 font-medium">Sl. No</th>
+                      <th className="p-2 font-medium">Passenger Name</th>
+                      <th className="p-2 font-medium">Passenger Type</th>
+                      <th className="p-2 font-medium">Passport Number</th>
+                      <th className="p-2 font-medium">E-Ticket No</th>
+                      <th className="p-2 font-medium">Seats</th>
+                      <th className="p-2 font-medium">Meals</th>
+                      <th className="p-2 font-medium">Assistance</th>
                     </tr>
                   </thead>
                   <tbody>
                     {data?.passengers.map((passenger, i) => (
-                      <tr>
-                        <td class="tab-05">{i + 1}</td>
-                        <td class="tab-2">
+                      <tr key={i}>
+                        <td className="tab-05">{i + 1}</td>
+                        <td className="tab-2">
                           {data?.records[i].passenger_sex === "M" ? "MR" : "MS"}{" "}
                           &nbsp;
                           {passenger.name}
                         </td>
-                        <td class="tab-1">
+                        <td className="tab-1">
                           {data?.records[i].passenger_type === "婴儿"
                             ? "Infant"
                             : "Adult"}
                         </td>
-                        <td class="tab-1"></td>
-                        <td class="tab-1">{data?.records[i].ticket_number}</td>
-                        <td class="tab-1"></td>
-                        <td class="tab-2"></td>
-                        <td class="tab-1"></td>
+                        <td className="tab-1"></td>
+                        <td className="tab-1">
+                          {data?.records[i].ticket_number}
+                        </td>
+                        <td className="tab-1"></td>
+                        <td className="tab-2"></td>
+                        <td className="tab-1"></td>
                       </tr>
                     ))}
                   </tbody>
@@ -144,25 +145,25 @@ const ManageAddOn = () => {
             </h4>
             <div className="flex gap-x-2 items-center mt-[8px]">
               <div
-                class="table-responsive md:overflow-hidden "
+                className="table-responsive md:overflow-hidden "
                 bis_skin_checked="1"
               >
                 <table
-                  class="table-border w-[88vw] xsm:w-[62vw] sm:w-[80vw] md:w-[710px] xl:w-[796px] "
+                  className="table-border w-[88vw] xsm:w-[62vw] sm:w-[80vw] md:w-[710px] xl:w-[796px] "
                   id="tblpassengers"
                 >
-                  <thead class="table-border text-[13px] text-[#101010] bg-[#f1f1f1] border-red-400 ">
+                  <thead className="table-border text-[13px] text-[#101010] bg-[#f1f1f1] border-red-400 ">
                     <tr>
-                      <th class="p-2 font-medium  w-1/2 min-w-[170px]">
+                      <th className="p-2 font-medium  w-1/2 min-w-[170px]">
                         Email
                       </th>
-                      <th class="p-2 font-medium w-1/2">Phone</th>
+                      <th className="p-2 font-medium w-1/2">Phone</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="tab-05">2850598567@QQ.COM</td>
-                      <td class="tab-2">6097001875</td>
+                      <td className="tab-05">2850598567@QQ.COM</td>
+                      <td className="tab-2">6097001875</td>
                     </tr>
                   </tbody>
                 </table>
@@ -194,7 +195,7 @@ const ManageAddOn = () => {
 
               <div
                 id="bodycontent_divsecMobileNo"
-                class="form-group col-md-8 min-w-full w-full lg:w-auto lg:min-w-max mt-[20px] lg:mt-auto"
+                className="form-group col-md-8 min-w-full w-full lg:w-auto lg:min-w-max mt-[20px] lg:mt-auto"
                 bis_skin_checked="1"
                 style={{ minWidth: "65%" }}
               >
@@ -203,18 +204,16 @@ const ManageAddOn = () => {
                 </label>
                 <div
                   id="bodycontent_ddMobileNo"
-                  class="inputright"
+                  className="inputright"
                   bis_skin_checked="1"
                 >
-                  <span class="input_span man_field double">
+                  <span className="input_span man_field double">
                     <select
                       name="ctl00$bodycontent$ddlMblCountryCode"
                       id="bodycontent_ddlMblCountryCode"
-                      class="form-control"
+                      className="form-control"
                     >
-                      <option selected="selected" value="">
-                        -Select Country Code-
-                      </option>
+                      <option value="">-Select Country Code-</option>
                       <option value="93">Afghanistan (+93)</option>
                       <option value="355">Albania (+355)</option>
                       <option value="213">Algeria (+213)</option>
@@ -499,13 +498,11 @@ const ManageAddOn = () => {
                     <input
                       name="ctl00$bodycontent$txtsecmobileNo"
                       type="text"
-                      maxlength="20"
+                      maxLength="20"
                       id="bodycontent_txtsecmobileNo"
-                      class="form-control telcol3 "
+                      className="form-control telcol3 "
                       data-toggle="tooltip"
                       data-placement="bottom"
-                      onkeypress="javascript:return CheckForSpecialSymbols(event)"
-                      onpaste="return false"
                       data-original-title=""
                       title=""
                       data-gtm-form-interact-field-id="1"
@@ -519,9 +516,8 @@ const ManageAddOn = () => {
                 type="submit"
                 name="ctl00$bodycontent$btnscndryContactInfo"
                 value="Update"
-                onclick="ShowLoading();"
                 id="bodycontent_btnscndryContactInfo"
-                class="btn btn-default btn-update"
+                className="btn btn-default btn-update"
               ></input>
             </div>
             {/* row 6  */}
@@ -531,43 +527,43 @@ const ManageAddOn = () => {
             </h4>
             <div className="flex gap-x-2 items-center mt-[8px]">
               <div
-                class="table-responsive overflow-scroll md:overflow-hidden "
+                className="table-responsive overflow-scroll md:overflow-hidden "
                 bis_skin_checked="1"
               >
                 <table
-                  class="table-border w-[710px] xl:w-[796px] "
+                  className="table-border w-[710px] xl:w-[796px] "
                   id="tblpassengers"
                 >
-                  <thead class="table-border text-[13px] text-[#101010] bg-[#f1f1f1] border-red-400 ">
+                  <thead className="table-border text-[13px] text-[#101010] bg-[#f1f1f1] border-red-400 ">
                     <tr>
-                      <th class="p-2 font-medium">Flight</th>
-                      <th class="p-2 font-medium">Departing</th>
-                      <th class="p-2 font-medium">Arriving</th>
-                      <th class="p-2 font-medium">Class</th>
-                      <th class="p-2 font-medium">Seats</th>
-                      <th class="p-2 font-medium">Snacks</th>
+                      <th className="p-2 font-medium">Flight</th>
+                      <th className="p-2 font-medium">Departing</th>
+                      <th className="p-2 font-medium">Arriving</th>
+                      <th className="p-2 font-medium">className</th>
+                      <th className="p-2 font-medium">Seats</th>
+                      <th className="p-2 font-medium">Snacks</th>
                     </tr>
                   </thead>
                   <tbody>
                     {data?.records.map((records, i) => (
-                      <tr>
-                        <td class="tab-05">
+                      <tr key={i}>
+                        <td className="tab-05">
                           Batik Air,MY <br />
                           {records.get_flight_info.couple_flight_no}
                         </td>
-                        <td class="tab-2">
+                        <td className="tab-2">
                           {records.get_flight_info.start_airport} <br />
                           {transformDate(records.get_flight_info.date)}{" "}
                           {records.get_flight_info.start_fly_time}
                         </td>
-                        <td class="tab-1">
+                        <td className="tab-1">
                           {records.get_flight_info.end_airport} <br />{" "}
                           {transformDate(records.get_flight_info.date)}{" "}
                           {records.get_flight_info.end_fly_time}
                         </td>
-                        <td class="tab-1">Super Saver(T)</td>
-                        <td class="tab-1"></td>
-                        <td class="tab-1"></td>
+                        <td className="tab-1">Super Saver(T)</td>
+                        <td className="tab-1"></td>
+                        <td className="tab-1"></td>
                       </tr>
                     ))}
                   </tbody>

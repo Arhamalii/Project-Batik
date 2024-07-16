@@ -203,22 +203,22 @@ const Footer = ({ homeFooter }) => {
 
           {homeFooter ? (
             <div
-              class="absolute hidden lg:block lg:-bottom-[0px]  right-0"
+              className="absolute hidden lg:block lg:-bottom-[0px]  right-0"
               bis_skin_checked="1"
             >
               <img
                 src="https://d3ganl2fbgt0uf.cloudfront.net/test/images/ftr-btm.png"
-                class="block max-w-full h-auto w-full"
+                className="block max-w-full h-auto w-full"
               />{" "}
             </div>
           ) : (
             <div
-              class="absolute hidden lg:block lg:-bottom-[0px]  right-0"
+              className="absolute hidden lg:block lg:-bottom-[0px]  right-0"
               bis_skin_checked="1"
             >
               <img
                 src="https://d3ganl2fbgt0uf.cloudfront.net/test/images/ftr-btm.png"
-                class="block max-w-full h-auto w-full"
+                className="block max-w-full h-auto w-full"
               />{" "}
             </div>
           )}

@@ -42,8 +42,8 @@ const AddonNav = () => {
       >
         <div className="lg:max-w-[970px] xl:max-w-[1140px] min-h-full mx-auto lg:px-5 xl:px-0 ">
           <ul className="links  sm:flex items-center justify-center lg:justify-start min-h-[50px]">
-            {addonNavLinks.map((link) => (
-              <li className="text-center">
+            {addonNavLinks.map((link, i) => (
+              <li className="text-center" key={i}>
                 <Link
                   to={link.path}
                   className="min-h-[50px] block hover:bg-[rgba(132,23,65,0.5)]"
