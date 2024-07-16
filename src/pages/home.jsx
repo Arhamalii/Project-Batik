@@ -35,13 +35,12 @@ const Home = () => {
       const response = await axios.get(
         `http://api.flymalindo.com/api/web/flight/queryCode?code=${data.refPNR}`
       );
-
       if (response?.data.status === false) {
         setMessage("Error in retrieving your booking. Please try again.");
         setIsVisible(true);
         setIsLoading(false);
       } else if (
-        response?.data?.data?.records[0].name.toLowerCase() !==
+        response.data?.data?.passengers[0]?.name.toLowerCase() !==
         data.FirstName.toLowerCase().split(" ").join("") +
           " " +
           data.LastName.toLowerCase().split(" ").join("")

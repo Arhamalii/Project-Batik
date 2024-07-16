@@ -154,7 +154,7 @@ const Footer = ({ homeFooter }) => {
             </div>
           </div>
         </div>
-        <div className="bg-[#be1a4a] min-h-[58px] text-white text-[12px] text-center py-3 relative z-[999] lg:z-auto">
+        <div className="bg-[#be1a4a] min-h-[58px] text-white text-[12px] text-center py-3 relative z-[999] lg:z-auto lg:absolute lg:w-full">
           <div className="font-arial">
             <Link
               className="font-arial"
@@ -201,30 +201,6 @@ const Footer = ({ homeFooter }) => {
             website is owned and operated by Malindo Airways Sdn Bhd (1018546-W)
           </p>
         </div>
-
-        {/* -bottom-[954px] xsm:-bottom-[1024px] sm:-bottom-[777px]   md:-bottom-[586px] */}
-
-        {homeFooter ? (
-          <div
-            class="absolute hidden lg:block lg:-bottom-[288px]  right-0"
-            bis_skin_checked="1"
-          >
-            <img
-              src="https://d3ganl2fbgt0uf.cloudfront.net/test/images/ftr-btm.png"
-              class="block max-w-full h-auto w-full"
-            />{" "}
-          </div>
-        ) : (
-          <div
-            class="absolute hidden lg:block lg:-bottom-[993px]  right-0"
-            bis_skin_checked="1"
-          >
-            <img
-              src="https://d3ganl2fbgt0uf.cloudfront.net/test/images/ftr-btm.png"
-              class="block max-w-full h-auto w-full"
-            />{" "}
-          </div>
-        )}
       </footer>
     </>
   );
