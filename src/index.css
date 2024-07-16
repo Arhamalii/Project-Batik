@@ -223,10 +223,10 @@ select .form-control {
   background-repeat: no-repeat;
 }
 
-/* @media screen and (min-width: 991px) {
+@media screen and (min-width: 991px) {
   .ftrBg {
     background-image: none;
     background-position: bottom right;
     background-repeat: no-repeat;
   }
-} */
+}

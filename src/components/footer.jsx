@@ -154,7 +154,7 @@ const Footer = ({ homeFooter }) => {
             </div>
           </div>
         </div>
-        <div className="bg-[#be1a4a] min-h-[58px] text-white text-[12px] text-center py-3 relative z-[999] lg:z-auto lg:absolute lg:w-full">
+        <div className="bg-[#be1a4a] min-h-[58px] text-white text-[12px] text-center py-3 relative z-[999] lg:z-auto lg:relative lg:w-full">
           <div className="font-arial">
             <Link
               className="font-arial"
@@ -200,6 +200,28 @@ const Footer = ({ homeFooter }) => {
             © Copyright by Batik Air,Malaysia. All Rights Reserved. / This
             website is owned and operated by Malindo Airways Sdn Bhd (1018546-W)
           </p>
+
+          {homeFooter ? (
+            <div
+              class="absolute hidden lg:block lg:-bottom-[0px]  right-0"
+              bis_skin_checked="1"
+            >
+              <img
+                src="https://d3ganl2fbgt0uf.cloudfront.net/test/images/ftr-btm.png"
+                class="block max-w-full h-auto w-full"
+              />{" "}
+            </div>
+          ) : (
+            <div
+              class="absolute hidden lg:block lg:-bottom-[0px]  right-0"
+              bis_skin_checked="1"
+            >
+              <img
+                src="https://d3ganl2fbgt0uf.cloudfront.net/test/images/ftr-btm.png"
+                class="block max-w-full h-auto w-full"
+              />{" "}
+            </div>
+          )}
         </div>
       </footer>
     </>
